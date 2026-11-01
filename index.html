@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conecta Prato Fortaleza — Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-visual"></div>
+    <div class="login-panel">
+      <div class="login-card">
+        <div class="login-brand">
+          <img src="imgs/logo-cropped.png" alt="Conecta Prato Fortaleza" class="login-logo">
+          <div class="login-subtitle">PROGRAMA FORTALEZA SEM FOME</div>
+        </div>
+        <form id="login-form" class="login-form">
+          <div class="field">
+            <label for="nome">Usuário</label>
+            <input id="nome" type="text" placeholder="Seu nome" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" placeholder="••••••••" autocomplete="current-password" required>
+          </div>
+          <div class="field">
+            <label for="role">Perfil</label>
+            <select id="role" required data-custom-select>
+              <option value="doador">Estabelecimento Doador</option>
+              <option value="receptora">Unidade Receptora</option>
+              <option value="gestao">Gestão Pública</option>
+              <option value="operador">Operador Logístico</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-entrar">Entrar</button>
+        </form>
+        <div class="login-hint">Não tem conta? <a href="cadastro.html">Cadastre-se</a></div>
+      </div>
+      <a class="made-by" href="https://starkevision.com.br" target="_blank" rel="noopener noreferrer">
+        <span class="made-by-text">Desenvolvido por</span>
+        <img src="imgs/logo-starke.png" alt="Starke Vision" class="made-by-logo">
+      </a>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script src="js/custom-select.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim() || 'Usuário';
+      const role = document.getElementById('role').value;
+      login(nome, role);
+    });
+  </script>
+</body>
+</html>

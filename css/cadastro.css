@@ -1,0 +1,65 @@
+/* ── wizard de cadastro (cadastro.html) — reaproveita o shell .login-page/
+   .login-card de login.css, só alargando o cartão e definindo os
+   componentes próprios do wizard (progresso, cards de perfil, tags). ── */
+
+.login-card.cadastro-card{ max-width:640px; }
+
+.cadastro-progress{ display:flex; gap:10px; }
+.cadastro-progress-step{ flex:1; display:flex; flex-direction:column; gap:6px; }
+.cadastro-progress-bar{ height:5px; border-radius:4px; background:#E4E6E8; transition:background-color .2s ease; }
+.cadastro-progress-step.is-active .cadastro-progress-bar{ background:var(--color-accent); }
+.cadastro-progress-step.is-done .cadastro-progress-bar{ background:var(--color-primary-dark); }
+.cadastro-progress-label{ font-size:11px; font-weight:700; color:#9AA0A6; text-align:center; }
+.cadastro-progress-step.is-active .cadastro-progress-label{ color:var(--color-accent); }
+.cadastro-progress-step.is-done .cadastro-progress-label{ color:var(--color-primary-dark); }
+
+.cadastro-step{ display:flex; flex-direction:column; gap:16px; margin-top:20px; }
+.cadastro-step-title{ font-size:18px; font-weight:800; color:#182A22; }
+.cadastro-step-sub{ font-size:13px; color:#7C838B; font-weight:600; margin-top:-10px; }
+
+.profile-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.profile-card{
+  position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:8px;
+  border:1.5px solid var(--color-border); border-radius:var(--radius-md); background:#fff;
+  padding:16px 14px; cursor:pointer; text-align:left;
+  transition:border-color .15s ease, background-color .15s ease, transform .15s ease;
+}
+.profile-card:hover{ border-color:#B9C0C6; transform:translateY(-1px); }
+.profile-card.is-selected{ border-color:var(--color-primary); border-width:2px; background:#F3F8F5; }
+.profile-card-check{ position:absolute; top:12px; right:12px; }
+.profile-card-title{ font-size:13.5px; font-weight:800; color:#182A22; }
+.profile-card-desc{ font-size:11.5px; color:#7C838B; font-weight:600; line-height:1.4; }
+
+.cadastro-form{ display:flex; flex-direction:column; gap:14px; }
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+.tag-select{ display:flex; flex-wrap:wrap; gap:8px; }
+.tag-chip{
+  border:1.5px solid #DADFE1; border-radius:20px; padding:7px 14px; font-size:12.5px; font-weight:700;
+  color:#4A4F55; background:#fff; cursor:pointer;
+  transition:border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+.tag-chip:hover{ border-color:#B9C0C6; }
+.tag-chip.is-selected{ border-color:var(--color-primary); background:var(--color-primary); color:#fff; }
+
+.cadastro-resumo{ background:#F6F7F5; border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:14px 16px; }
+.cadastro-resumo-title{ font-size:12px; font-weight:800; color:#4A4F55; text-transform:uppercase; letter-spacing:.03em; margin-bottom:10px; }
+.cadastro-resumo-grid{ display:flex; flex-direction:column; gap:6px; }
+.cadastro-resumo-row{ display:flex; justify-content:space-between; gap:14px; font-size:12.5px; }
+.cadastro-resumo-row span{ color:#7C838B; font-weight:600; flex:0 0 auto; }
+.cadastro-resumo-row strong{ color:#182A22; font-weight:700; text-align:right; }
+
+.cadastro-error{ font-size:12px; font-weight:700; color:#B23434; }
+
+.cadastro-nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.cadastro-nav .btn-entrar{ padding:13px 28px; }
+.btn-voltar{
+  border:1px solid #DADFE1; border-radius:12px; padding:13px 20px; font-size:14px; font-weight:800;
+  color:#4A4F55; background:#fff; cursor:pointer;
+}
+.btn-voltar:hover{ border-color:#B9C0C6; color:#182A22; }
+
+@media (max-width:640px){
+  .profile-cards{ grid-template-columns:1fr; }
+  .field-row{ grid-template-columns:1fr; }
+}

@@ -1,0 +1,51 @@
+.login-page{ min-height:100vh; display:flex; }
+
+.login-visual{
+  flex:1 1 65%;
+  position:relative;
+  background-image:url('../imgs/restaurante2.png');
+  background-size:cover;
+  background-position:center;
+  overflow:hidden;
+}
+.login-visual::before{
+  content:'';
+  position:absolute; inset:0;
+  background-color:rgba(27,67,50,.25);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+}
+
+.login-panel{
+  flex:1 1 35%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
+  padding:24px; background:var(--color-bg);
+}
+
+.login-card{
+  width:100%; max-width:400px; background:#fff; border-radius:18px; border:1px solid var(--color-border);
+  box-shadow:0 20px 44px -18px rgba(27,67,50,.25); padding:32px 28px; display:flex; flex-direction:column; gap:22px;
+}
+
+@media (max-width:900px){
+  .login-visual{ display:none; }
+}
+.login-brand{ display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+.login-logo{ height:140px; width:auto; display:block; }
+.login-subtitle{ font-size:11.5px; color:#8A9099; font-weight:700; letter-spacing:.03em; }
+
+.login-form{ display:flex; flex-direction:column; gap:16px; }
+.field{ display:flex; flex-direction:column; gap:6px; }
+.field label{ font-size:12.5px; font-weight:700; color:#4A4F55; }
+.field input{
+  border:1px solid #DADFE1; border-radius:10px; padding:11px; font-size:14px; background:#fff;
+}
+.field input:focus{ outline:2px solid var(--color-primary); outline-offset:1px; }
+
+.btn-entrar{
+  border:none; border-radius:12px; padding:14px; font-size:15px; font-weight:800; color:#fff;
+  background:var(--color-accent); box-shadow:0 8px 18px -6px rgba(249,115,22,.5);
+}
+.login-hint{ font-size:11.5px; color:#9AA0A6; text-align:center; font-weight:600; }
+.login-panel .made-by-text{ font-size:13px; }
+.login-panel .made-by-logo{ height:34px; }
