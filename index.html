@@ -47,12 +47,20 @@
     </div>
   </div>
   <script src="js/auth.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/toast.js"></script>
   <script src="js/custom-select.js"></script>
   <script>
+    // Validação só demonstrativa: credencial fixa admin/admin no front.
     document.getElementById('login-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      const nome = document.getElementById('nome').value.trim() || 'Usuário';
+      const nome = document.getElementById('nome').value.trim();
+      const senha = document.getElementById('senha').value;
       const role = document.getElementById('role').value;
+      if (nome !== 'admin' || senha !== 'admin') {
+        showToast('error', 'Acesso negado', 'Usuário ou senha inválidos.');
+        return;
+      }
       login(nome, role);
     });
   </script>
